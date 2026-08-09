@@ -71,6 +71,11 @@ jobs:
       - name: Pull DVC data from S3
         run: |
           dvc pull -v
+        
+      - name: Run unit tests
+        run: pytest tests/ -v --tb=short
+        env:
+          PYTHONPATH: ${{ github.workspace }}
 
 
       
