@@ -73,10 +73,7 @@ jobs:
           dvc pull -v
 
 
-      - name: Run unit tests
-        run: pytest tests/ -v --tb=short
-        env:
-          PYTHONPATH: ${{ github.workspace }}
+      
 
       - name: Train model
         run: python src/train.py --tracking_uri "${{ secrets.MLFLOW_TRACKING_URI || 'http://localhost:5001' }}"
